@@ -13,7 +13,7 @@ int main() {
 
 	SetConsoleCP(1251);
 	SetConsoleOutputCP(1251);
-	srand(time(nullptr)); // настройка рандома
+	srand(time(nullptr)); // Г­Г Г±ГІГ°Г®Г©ГЄГ  Г°Г Г­Г¤Г®Г¬Г 
 
 	float a=0;
 	float b=0;
@@ -21,14 +21,14 @@ int main() {
 	int size;
 	int tmp=0;
 //
-	cout<<"Введите коэффициент а : ";
+	cout<<"Г‚ГўГҐГ¤ГЁГІГҐ ГЄГ®ГЅГґГґГЁГ¶ГЁГҐГ­ГІ Г  : ";
 	cin>>a;
-	cout<<"Введите коэффициент b : ";
+	cout<<"Г‚ГўГҐГ¤ГЁГІГҐ ГЄГ®ГЅГґГґГЁГ¶ГЁГҐГ­ГІ b : ";
 	cin>>b;
-	cout<<"Введите колличество вычисляемых точек : ";
+	cout<<"Г‚ГўГҐГ¤ГЁГІГҐ ГЄГ®Г«Г«ГЁГ·ГҐГ±ГІГўГ® ГўГ»Г·ГЁГ±Г«ГїГҐГ¬Г»Гµ ГІГ®Г·ГҐГЄ : ";
 	cin>>size;
 
-	//генерация <-
+	//ГЈГҐГ­ГҐГ°Г Г¶ГЁГї <-
 	float* X = genX(tmp);
     float* Y = genY(a,b, X, tmp);
 
@@ -40,7 +40,7 @@ int main() {
 }
 
 
-//генерация ->
+//ГЈГҐГ­ГҐГ°Г Г¶ГЁГї ->
 
 float* genX(int count){
     float* X = new float[count];
@@ -68,14 +68,14 @@ float* genY(const float a, const float b, float* X, int count){
 
 
 void writetofile(const float* X,const  float* Y,const  int count,const float a,const float b,const int* size) {
-	ofstream fout("output.txt"); // создаём объект класса ofstream для записи и связываем его с файлом output.txt
-	// запись строк в файл
+	ofstream fout("output.txt"); // Г±Г®Г§Г¤Г ВёГ¬ Г®ГЎГєГҐГЄГІ ГЄГ«Г Г±Г±Г  ofstream Г¤Г«Гї Г§Г ГЇГЁГ±ГЁ ГЁ Г±ГўГїГ§Г»ГўГ ГҐГ¬ ГҐГЈГ® Г± ГґГ Г©Г«Г®Г¬ output.txt
+	// Г§Г ГЇГЁГ±Гј Г±ГІГ°Г®ГЄ Гў ГґГ Г©Г«
 	for (int i = 0; i < count - 1; i++)
 	{
-		fout << "коэффициент а= "<< a << endl;
-		fout << "коэффициент b= "<< b << endl;
-		fout << "колличество вычисляемых точек : " << size << endl;
-		for (int i = 0; i < count;i++) //вывод х
+		fout << "ГЄГ®ГЅГґГґГЁГ¶ГЁГҐГ­ГІ Г = "<< a << endl;
+		fout << "ГЄГ®ГЅГґГґГЁГ¶ГЁГҐГ­ГІ b= "<< b << endl;
+		fout << "ГЄГ®Г«Г«ГЁГ·ГҐГ±ГІГўГ® ГўГ»Г·ГЁГ±Г«ГїГҐГ¬Г»Гµ ГІГ®Г·ГҐГЄ : " << size << endl;
+		for (int i = 0; i < count;i++) //ГўГ»ГўГ®Г¤ Гµ
 			 {
         if(i == count-1)
             fout << X[i] <<endl;
@@ -83,7 +83,7 @@ void writetofile(const float* X,const  float* Y,const  int count,const float a,c
             fout << X[i] << "," <<endl;
     		 }
 
-		for (int i = 0; i < count;i++) //вывод y
+		for (int i = 0; i < count;i++) //ГўГ»ГўГ®Г¤ y
 			 {
         if(i == count-1)
             fout << Y[i] << endl;
@@ -92,5 +92,5 @@ void writetofile(const float* X,const  float* Y,const  int count,const float a,c
    			 }
 	}
 
-	fout.close(); // закрываем файл
+	fout.close(); // Г§Г ГЄГ°Г»ГўГ ГҐГ¬ ГґГ Г©Г«
 }
